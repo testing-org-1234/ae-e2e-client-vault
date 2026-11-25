@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import {IERC20} from "./Token.sol";
 import {MathLib} from "./lib/MathLib.sol";
 
-/// @notice A tiny invented vault for a test audit.
+/// @notice A tiny invented vault, v2 branch.
 contract Vault {
     IERC20 public immutable asset;
     mapping(address => uint256) public shares;
