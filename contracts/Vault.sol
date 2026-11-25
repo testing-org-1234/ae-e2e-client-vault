@@ -25,9 +25,8 @@ contract Vault {
     function withdraw(uint256 shareAmount) external returns (uint256 out) {
         uint256 balance = asset.balanceOf(address(this));
         out = MathLib.mulDiv(shareAmount, balance, totalShares);
-        // BUG (invented): state updated after the external call.
-        asset.transfer(msg.sender, out);
         shares[msg.sender] -= shareAmount;
         totalShares -= shareAmount;
+        asset.transfer(msg.sender, out);
     }
 }
